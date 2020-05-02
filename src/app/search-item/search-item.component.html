@@ -1,0 +1,63 @@
+  <div style="width:83%; float:right; border-width: 2px;">
+    <div id="keywordArea" class="row">
+      <div class="col-xs-7"><input type="text" class="form-control" style="width: 400px;" placeholder="Input a keyword" /></div>
+      <div class="col-xs-5 ml-2"><button type="button" class="btn btn-primary" style="display: inline-block;">Search</button></div>
+    </div>
+    <div id="itemListArea" class="row mt-2">
+      <h4 style="width: 20%;">Item list</h4>
+      <table style="width: 100%;" class="table-bordered table-hover table-condensed">
+              <tr style="background-color: #CAE8EA;">
+                  <th style="width: 10%;">Product Id</th>
+                  <th style="width: 16%;">Product Name</th>
+                  <th style="width: 15%;">Category</th>
+                  <th style="width: 15%;">Sub category</th>
+                  <th style="width: 8%;">Price</th>
+                  <th style="width: 8%;">Stock</th>
+                  <th style="width: 18%;">Remarks</th>
+                  <th style="width: 10%;">Add to cart</th>
+              </tr>
+              <tbody *ngFor="let item of searchlist; index as productID">
+              <tr>
+                  <td><a [routerLink]="['/itemdetail', productID]" routerLinkActive="router-link-active" >{{ item.productNO }}</a></td>
+                  <td>{{ item.productName}}</td>
+                  <td>{{ item.category}}</td>
+                  <td>{{ item.subcategory}}</td>
+                  <td align="right">{{ item.price}}</td>
+                  <td align="right">{{ item.stockNumber}}</td>
+                  <td>{{ item.remarks}}</td>
+                  <td align="center"><button type="button" class="btn btn-primary btn-sm">Add to cart</button></td>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+  </div>
+
+  <div class="panel panel-default" style="float:left;width:15%; border-right:2px solid blue;">
+    <div class="panel-heading" style="background-color: aquamarine;"><h2>Filters</h2></div>
+    <div class="panel-body pr-2">
+
+      <div class="form-group">
+        <label for="category1">Category:</label>
+        <select class="form-control" id="category1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        <br>
+        <label for="category2">Sub category:</label>
+        <select class="form-control" id="category2">
+          <option>11</option>
+          <option>12</option>
+          <option>21</option>
+          <option>22</option>
+          <option>31</option>
+          <option>32</option>
+        </select>
+        <br>
+        <label for="priceFrom">Price range:</label>
+        <input type="text" class="form-control" id="priceFrom"/>
+        ~
+        <input type="text" class="form-control" id="priceTo"/>
+      </div>
+
+  </div>

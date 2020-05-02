@@ -1,0 +1,33 @@
+<div id="cartItemList" style="width: 100%;">
+  <h2 style="width: 20%;">Item list</h2>
+  <table style="width: 100%;" class="table-bordered table-hover table-condensed">
+    <tr style="background-color: #CAE8EA;">
+        <th style="width: 12%;">Product Id</th>
+        <th style="width: 18%;">Product Name</th>
+        <th style="width: 14%;">Category</th>
+        <th style="width: 14%;">Sub category</th>
+        <th style="width: 10%;">Unit</th>
+        <th style="width: 10%;">Price</th>
+        <th style="width: 12%;">Amount</th>
+    </tr>
+  <tbody *ngFor="let order of orders; index as productId">
+    <tr>
+        <td>{{ order.productNO }}</td>
+        <td>{{ order.productName }}</td>
+        <td>{{ order.category }}</td>
+        <td>{{ order.subcategory }}</td>
+        <td>{{ order.unit }}</td>
+        <td align="right">{{ order.price }}</td>
+        <td align="right">{{ order.quantity*order.price }}</td>
+    </tr>
+  </tbody>
+    <tr>
+        <td colspan="6" align="right"><strong>Total:</strong></td>
+        <td colspan="1" align="right"><strong>{{ this.ttlAmt }}</strong></td>
+    </tr>
+  </table>
+</div>
+<div style="width: 100%; margin-top: 30px;">
+  <div style="float: inline-end;">
+    <button type="button" class="btn btn-primary btn-sm" routerLink="/checkout">Payment</button></div>
+</div>

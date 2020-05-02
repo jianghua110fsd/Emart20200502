@@ -1,0 +1,31 @@
+<div id="cartItemList" style="width: 100%;">
+  <h2 style="width: 20%;">Order list</h2>
+  <table style="width: 100%;" class="table-bordered table-hover table-condensed">
+    <tr style="background-color: #CAE8EA;">
+        <th style="width: 9%;">Order no.</th>
+        <th style="width: 9%;">Order date</th>
+        <th style="width: 9%;">Product Id</th>
+        <th style="width: 15%;">Product Name</th>
+        <th style="width: 13%;">Category</th>
+        <th style="width: 13%;">Sub category</th>
+        <th style="width: 8%;">Unit</th>
+        <th style="width: 8%;">Price</th>
+        <th style="width: 8%;">Quantity</th>
+        <th style="width: 8%;">Amount</th>
+    </tr>
+    <tbody *ngFor="let order of history; index as productId">
+    <tr>
+        <td>{{ order.orderNo }}</td>
+        <td>{{ order.orderDate }}</td>
+        <td>{{ order.productNO }}</td>
+        <td>{{ order.productName }}</td>
+        <td>{{ order.category }}</td>
+        <td>{{ order.subcategory }}</td>
+        <td>{{ order.unit }}</td>
+        <td align="right">{{ order.price }}</td>
+        <td align="right">{{ order.quantity }}</td>
+        <td align="right">{{ order.price*order.quantity }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

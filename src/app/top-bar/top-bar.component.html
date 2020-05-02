@@ -1,0 +1,23 @@
+<!-- <a [routerLink]="['/']">
+  <h1 st>top bar</h1>
+</a>
+<div>
+<a [routerLink]="['/logout']" class="button"><i class="material-icons">logout</i></a>
+<a [routerLink]="['/myprofile']" class="button"><i class="material-icons">account_box</i></a>
+</div> -->
+
+<!-- shopping_cart
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<mat-toolbar id="toolbar" color="primary" class="toolbar funnyText">
+  E-Mart
+  <span class="spacer"></span>
+  <div style="width: 98%; text-align: right;">
+      <a [routerLink]="['/seller-top']" routerLinkActive="router-link-active" class="button"><i class="material-icons">home</i></a>
+      <a [routerLink]="['/myprofile']" routerLinkActive="router-link-active" class="button"><i class="material-icons">account_box</i></a>
+      <a [routerLink]="['/']" routerLinkActive="router-link-active" class="button"><i class="material-icons">logout</i></a>
+  </div>
+</mat-toolbar>

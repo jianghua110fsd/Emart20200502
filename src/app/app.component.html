@@ -1,0 +1,40 @@
+<div [ngClass]="{'inVisible': configService.isSeller}">
+<mat-toolbar id="toolbar" color="primary" class="toolbar funnyText">
+  {{title}}
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/itemsearch">
+    <i class="material-icons">home</i>
+    <span>Home</span>
+  </button>
+
+  <button id="cartBtn" mat-button routerLink="/cart">
+    <i class="material-icons">shopping_cart</i>
+    <span>Cart</span>
+  </button>
+
+  <button mat-button routerLink="/pchist">
+    <i class="material-icons">inventory</i>
+    <span>My orders</span>
+  </button>
+
+  <button mat-button routerLink="/buyerprofile">
+    <i class="material-icons">account_box</i>
+    <span>My profile</span>
+  </button>
+
+  <button mat-button (click)="logout()">
+    <i class="material-icons">logout</i>
+    <span>Logout</span>
+  </button>
+
+</mat-toolbar>
+</div>
+
+<div class="flex-container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start">
+  <div class="flex-item" fxFlex="5%" fxFlex.xs="0%"></div>
+  <div class="flex-item" fxFlex="90%" fxFlex.xs="100%">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="flex-item" fxFlex="5%" fxFlex.xs="0%"></div>
+</div>

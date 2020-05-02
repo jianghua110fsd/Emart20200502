@@ -1,0 +1,37 @@
+<app-top-bar></app-top-bar>
+<div class="form row" style="margin-top: 5px;">
+<br/>
+				<div  class="col-md-6 col-md-offset-3" *ngIf="product"> 
+					<div class="textH">
+						<input class="form-control required" readonly type="text" value="{{product.productNO}}" placeholder="Item ID" name="itemid" autofocus="autofocus"/>
+					</div>
+					<div class="textH">
+						<input class="form-control required" type="text" value="{{product.category}}" placeholder="Category ID" name="category_id" autofocus="autofocus"/>
+					</div>
+					<div class="textH">
+						<input class="form-control required" type="text" value="{{product.subcategory}}" placeholder="Sub category ID" name="subcategory_id" autofocus="autofocus"/>
+					</div>
+					<div class="textH">
+							<input class="form-control required" type="text" value="{{product.unit}}" placeholder="Unit" name="unit"/>
+					</div>
+					<div class="textH">
+							<input class="form-control required" type="text" value="{{product.price}}" placeholder="Price" name="price"/>
+					</div>
+					<div class="textH">
+							<input class="form-control" type="text" value="{{product.stockNumber}}" placeholder="Stock" name="stock"/>
+					</div>
+					<div class="textH">
+							<input class="form-control required" type="text" value="{{product.remarks}}" placeholder="Remarks" name="remarks"/>
+					</div>
+					<div class="textH">
+							<input class="form-control" type="text" placeholder="Item name" value="{{ product.productName }}" name="itemname"/>
+					</div>
+					<div class="textH">
+							<input class="form-control" size="200" type="text" placeholder="Description" value="{{ product.description }}"  name="description"/>
+					</div>
+					<div class="bottonH">
+						<input type="submit" class="btn btn-primary btn-sm" value="Update"/>
+						<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value=" Back "/>
+					</div>
+				</div>
+		</div>

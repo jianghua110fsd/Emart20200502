@@ -1,0 +1,42 @@
+<mat-toolbar id="toolbar" color="primary" class="toolbar funnyText">
+  E-Mart
+  <span class="spacer"></span>
+  <div style="width: 98%; text-align: right;">
+      <a [routerLink]="['/seller-top']" class="button"><i class="material-icons">home</i></a>
+      <a [routerLink]="['/myprofile']" class="button"><i class="material-icons">account_box</i></a>
+      <a [routerLink]="['/']" class="button"><i class="material-icons">logout</i></a>
+  </div>
+</mat-toolbar>
+
+<!-- <h1 style="background-color: aquamarine;">item list</h1> -->
+<h2>Item list</h2>
+<table class="table-bordered table-hover table-condensed" style="width: 100%;">
+    <tr style="background-color: burlywood;" >
+      <th style="width: 10%;">Product no</th>
+      <th style="width: 15%;">Product name</th>
+      <th style="width: 12%;">Category</th>
+      <th style="width: 13%;">Sub category</th>
+      <th style="width: 8%;">Unit</th>
+      <th style="width: 8%;">Price</th>
+      <th style="width: 8%;">Stock</th>
+      <th style="width: 20%;">Remarks</th>
+      <th style="width: 6%;">Delete</th>
+    </tr>
+  <tbody *ngFor="let product of products; index as productId">
+    <tr >
+      <td><a [routerLink]="['/item-maitenance', productId]" routerLinkActive="router-link-active" >{{ product.productNO }}</a></td>
+      <td>{{ product.productName}}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.subcategory }}</td>
+      <td>{{ product.unit }}</td>
+      <td align="right">{{ product.price }}</td>
+      <td align="right">{{ product.stockNumber }}</td>
+      <td>{{ product.remarks }}</td>
+      <td><input type="submit" class="btn-primary" value="delete"/></td>
+    </tr>
+  </tbody>
+</table>
+<div class="form-group" style="margin-top: 10px;">
+    <input type="submit" name="insert" class="btn btn-primary" value="Insert" routerLink="/item-insert">
+    <input type="submit" id="back_btn" class="btn btn-primary" style="margin-left: 8px;" value="Back" (click)="goBack()" />
+</div>
