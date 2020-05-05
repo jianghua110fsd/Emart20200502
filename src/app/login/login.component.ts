@@ -9,6 +9,10 @@ import {ConfigService} from '../services/config.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  sign: string;
+  errorMessage: string;
+  username: string;
+  password: string;
 
   constructor( private router: Router, private configService: ConfigService ) { }
 

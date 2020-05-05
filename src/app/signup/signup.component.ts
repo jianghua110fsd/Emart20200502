@@ -11,5 +11,8 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+goBack(): void {
+  history.go(-1);
+}
 
 }
