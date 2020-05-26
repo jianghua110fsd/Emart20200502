@@ -1,32 +1,36 @@
+
 export const products = [
   {
-    productName: 'Phone XL',
-    productNO: 'P00001',
-    category: 'Electronics',
-    subcategory: 'Phone',
+    product_name: 'iPhone XL',
+    product_id: 'P00001',
+    category_id: 'Electronics',
+    subcategory_id: 'Phone',
     unit: 'Tai',
-    price: 3888,
-    stockNumber: 88,
-    remarks: 'A large phone'
+    current_price: 3888,
+    current_stock: 88,
+    remarks: 'A large phone',
+    description:  'apple '
   },
   {
-    productName: '4MATIC DRP 37435',
-    productNO: 'A00002',
-    category: 'Automobile',
-    subcategory: 'Mercedes-Benz',
+    product_name: '4MATIC DRP',
+    product_id: 'A00002',
+    category_id: 'Automobile',
+    subcategory_id: 'Mercedes-Benz',
     unit: 'Tai',
-    price: 588888,
-    stockNumber: 99,
-    remarks: 'A super car'
+    current_price: 588888,
+    current_stock: 99,
+    remarks: 'A super car',
+    description: '37435'
   },
   {
-    productName: 'Casio 3500',
-    productNO: 'W00003',
-    category: 'Watch',
-    subcategory: 'Quartz watch',
+    product_name: 'Casio 3500',
+    product_id: 'W00003',
+    category_id: 'Watch',
+    subcategory_id: 'Quartz watch',
     unit: 'Kuai',
-    price: 18888,
-    stockNumber: 999,
-    remarks: 'Swatch Group,A good Watch'
+    current_price: 18888,
+    current_stock: 999,
+    remarks: 'A good Watch',
+    description: 'Swatch Group'
   },
 ];

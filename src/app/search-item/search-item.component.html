@@ -13,18 +13,18 @@
                   <th style="width: 15%;">Sub category</th>
                   <th style="width: 8%;">Price</th>
                   <th style="width: 8%;">Stock</th>
-                  <th style="width: 18%;">Remarks</th>
+                  <th style="width: 18%;">Description</th>
                   <th style="width: 10%;">Add to cart</th>
               </tr>
               <tbody *ngFor="let item of searchlist; index as productID">
               <tr>
-                  <td><a [routerLink]="['/itemdetail', productID]" routerLinkActive="router-link-active" >{{ item.productNO }}</a></td>
+                  <td><a [routerLink]="['/itemdetail', productID]" routerLinkActive="router-link-active" >{{ item.productId }}</a></td>
                   <td>{{ item.productName}}</td>
-                  <td>{{ item.category}}</td>
-                  <td>{{ item.subcategory}}</td>
-                  <td align="right">{{ item.price}}</td>
-                  <td align="right">{{ item.stockNumber}}</td>
-                  <td>{{ item.remarks}}</td>
+                  <td>{{ item.categoryId}}</td>
+                  <td>{{ item.subcategoryId}}</td>
+                  <td align="right">{{ item.currentPrice}}</td>
+                  <td align="right">{{ item.currentStock}}</td>
+                  <td>{{ item.description}}</td>
                   <td align="center"><button type="button" class="btn btn-primary btn-sm">Add to cart</button></td>
               </tr>
               </tbody>

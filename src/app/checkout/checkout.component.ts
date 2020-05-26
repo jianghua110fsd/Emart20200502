@@ -14,7 +14,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.ttlAmt = 0;
     for (const ord of orders) {
-      this.ttlAmt = this.ttlAmt + ord.price * ord.quantity;
+      this.ttlAmt = this.ttlAmt + ord.purchase_amount;
     }
   }
 

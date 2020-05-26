@@ -1,32 +1,36 @@
 export const searchlist = [
   {
-    productName: 'Phone XL',
-    productNO: 'P00001',
+    product_name: 'Phone XL',
+    product_id: 'P00001',
     category: 'Electronics',
     subcategory: 'Phone',
     unit: 'Tai',
-    price: 3888,
-    stockNumber: 88,
-    remarks:'Apple'
+    current_price: 3888,
+    current_stock: 88,
+    remarks: 'A large phone',
+    description:  'apple '
   },
   {
-    productName: '4MATIC',
-    productNO: 'A00002',
+    product_name: '4MATIC',
+    product_id: 'A00002',
     category: 'Automobile',
     subcategory: 'Mercedes-Benz',
     unit: 'Tai',
-    price: 588888,
-    stockNumber: 99,
-    remarks:'DRP 37435'
+    current_price: 588888,
+    current_stock: 99,
+    remarks: 'A super car',
+    description: '37435'
   },
   {
-    productName: 'Casio',
-    productNO: 'W00003',
+    product_name: 'Casio',
+    product_id: 'W00003',
     category: 'Watch',
     subcategory: 'Quartz watch',
     unit: 'Kuai',
-    price: 18888,
-    stockNumber: 999,
-    remarks:'Swatch Group'
+    current_price: 18888,
+    current_stock: 999,
+    remarks: 'A good Watch',
+    description: 'Swatch Group'
+
   },
 ];

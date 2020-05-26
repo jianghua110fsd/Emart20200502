@@ -12,26 +12,28 @@
 <h2>Item list</h2>
 <table class="table-bordered table-hover table-condensed" style="width: 100%;">
     <tr style="background-color: burlywood;" >
-      <th style="width: 10%;">Product no</th>
-      <th style="width: 15%;">Product name</th>
-      <th style="width: 12%;">Category</th>
-      <th style="width: 13%;">Sub category</th>
-      <th style="width: 8%;">Unit</th>
-      <th style="width: 8%;">Price</th>
-      <th style="width: 8%;">Stock</th>
-      <th style="width: 20%;">Remarks</th>
+      <th style="width: 9%;">Product Id</th>
+      <th style="width: 14%;">Product Name</th>
+      <th style="width: 10%;">Category</th>
+      <th style="width: 10%;">Sub category</th>
+      <th style="width: 7%;">Unit</th>
+      <th style="width: 7%;">Price</th>
+      <th style="width: 7%;">Stock</th>
+      <th style="width: 10%;">Remarks</th>
+      <th style="width: 20%;">Description</th>
       <th style="width: 6%;">Delete</th>
     </tr>
   <tbody *ngFor="let product of products; index as productId">
     <tr >
-      <td><a [routerLink]="['/item-maitenance', productId]" routerLinkActive="router-link-active" >{{ product.productNO }}</a></td>
-      <td>{{ product.productName}}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.subcategory }}</td>
-      <td>{{ product.unit }}</td>
-      <td align="right">{{ product.price }}</td>
-      <td align="right">{{ product.stockNumber }}</td>
+      <td><a [routerLink]="['/item-maitenance', productId]" routerLinkActive="router-link-active" >{{ product.product_id }}</a></td>
+      <td>{{ product.product_name}}</td>
+      <td>{{ product.category_id }}</td>
+      <td>{{ product.subcategory_id }}</td>
+      <td align="right">{{ product.unit }}</td>
+      <td align="right">{{ product.current_price }}</td>
+      <td align="right">{{ product.current_stock }}</td>
       <td>{{ product.remarks }}</td>
+      <td>{{ product.description }}</td>
       <td><input type="submit" class="btn-primary" value="delete"/></td>
     </tr>
   </tbody>

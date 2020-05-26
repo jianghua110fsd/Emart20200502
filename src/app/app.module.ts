@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -86,6 +87,7 @@ import { ItemInsertComponent } from './item-insert/item-insert.component';
     FormsModule,
     MatDialogModule,
     HttpModule,
+    HttpClientModule
   ],
   providers: [ChuckService],
   bootstrap: [AppComponent]

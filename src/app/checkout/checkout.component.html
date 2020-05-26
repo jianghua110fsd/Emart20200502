@@ -4,21 +4,21 @@
     <tr style="background-color: #CAE8EA;">
         <th style="width: 12%;">Product Id</th>
         <th style="width: 18%;">Product Name</th>
-        <th style="width: 14%;">Category</th>
-        <th style="width: 14%;">Sub category</th>
+        <th style="width: 14%;">Seller Id</th>
+        <th style="width: 28%;">Remarks</th>
         <th style="width: 10%;">Unit</th>
         <th style="width: 10%;">Price</th>
         <th style="width: 12%;">Amount</th>
     </tr>
   <tbody *ngFor="let order of orders; index as productId">
     <tr>
-        <td>{{ order.productNO }}</td>
-        <td>{{ order.productName }}</td>
-        <td>{{ order.category }}</td>
-        <td>{{ order.subcategory }}</td>
-        <td>{{ order.unit }}</td>
-        <td align="right">{{ order.price }}</td>
-        <td align="right">{{ order.quantity*order.price }}</td>
+        <td>{{ order.product_id }}</td>
+        <td>{{ order.product_name }}</td>
+        <td>{{ order.seller_id }}</td>
+        <td align="right">{{ order.remarks }}</td>
+        <td align="right">{{ order.purchase_price }}</td>
+        <td align="right">{{ order.purchase_num }}</td>
+        <td align="right">{{ order.purchase_amount }}</td>
     </tr>
   </tbody>
     <tr>

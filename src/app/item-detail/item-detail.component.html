@@ -7,11 +7,11 @@
       <table style="width: 97%;" class="table-bordered table-striped table-hover table-condensed ml-3" *ngIf="item">
               <tr >
                   <th style="width: 30%;">Product Id</th>
-                  <td>{{ item.productNO }}</td>
+                  <td>{{ item.product_id }}</td>
               </tr>
               <tr>
                   <th>Product Name</th>
-                  <td>{{ item.productName }}</td>
+                  <td>{{ item.product_name }}</td>
               </tr>
               <tr>
                   <th>Category</th>
@@ -27,15 +27,19 @@
               </tr>
               <tr>
                   <th>Price</th>
-                  <td>{{ item.price }}</td>
+                  <td>{{ item.current_price }}</td>
               </tr>
               <tr>
                   <th>Stock</th>
-                  <td>{{ item.stockNumber }}</td>
+                  <td>{{ item.current_stock }}</td>
               </tr>
               <tr>
                   <th>Remarks</th>
                   <td>{{ item.remarks }}</td>
+              </tr>
+              <tr>
+                  <th>Description</th>
+                  <td>{{ item.description }}</td>
               </tr>
         </table>
     </div>

@@ -27,10 +27,9 @@ export const reports = [
     orderDate: '2019-08-21',
     productName: 'Tissue',
     productNO: 'D00003',
-    unit: 'Kuai',
+    unit: 'Da',
     price: 1888,
     quantity: 2,
-    amaont: 3776
-
+    amount: 3776
   },
 ];

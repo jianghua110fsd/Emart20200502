@@ -3,31 +3,31 @@
 <br/>
 				<div  class="col-md-6 col-md-offset-3" *ngIf="product"> 
 					<div class="textH">
-						<input class="form-control required" readonly type="text" value="{{product.productNO}}" placeholder="Item ID" name="itemid" autofocus="autofocus"/>
+						<input class="form-control required" readonly type="text" value="{{product.product_id}}" name="product_id" id="product_id" autofocus="autofocus"/>
 					</div>
 					<div class="textH">
-						<input class="form-control required" type="text" value="{{product.category}}" placeholder="Category ID" name="category_id" autofocus="autofocus"/>
+							<input class="form-control" type="text" value="{{ product.product_name }}" id="product_name" name="product_name"/>
 					</div>
 					<div class="textH">
-						<input class="form-control required" type="text" value="{{product.subcategory}}" placeholder="Sub category ID" name="subcategory_id" autofocus="autofocus"/>
+						<input class="form-control required" type="text" value="{{product.category_id}}" name="category_id" id="category_id" autofocus="autofocus"/>
 					</div>
 					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.unit}}" placeholder="Unit" name="unit"/>
+						<input class="form-control required" type="text" value="{{product.subcategory_id}}" name="subcategory_id" id="subcategory_id" autofocus="autofocus"/>
 					</div>
 					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.price}}" placeholder="Price" name="price"/>
+							<input class="form-control required" type="text" value="{{product.unit}}" id="unit" name="unit"/>
 					</div>
 					<div class="textH">
-							<input class="form-control" type="text" value="{{product.stockNumber}}" placeholder="Stock" name="stock"/>
+							<input class="form-control required" type="text" value="{{product.current_price}}" id="current_price" name="current_price"/>
 					</div>
 					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.remarks}}" placeholder="Remarks" name="remarks"/>
+							<input class="form-control" type="text" value="{{product.current_stock}}" id="current_stock" name="current_stock"/>
 					</div>
 					<div class="textH">
-							<input class="form-control" type="text" placeholder="Item name" value="{{ product.productName }}" name="itemname"/>
+							<input class="form-control required" type="text" value="{{product.remarks}}" id="remarks" name="remarks"/>
 					</div>
 					<div class="textH">
-							<input class="form-control" size="200" type="text" placeholder="Description" value="{{ product.description }}"  name="description"/>
+							<input class="form-control required" type="text" value="{{product.description}}" id="description" name="description"/>
 					</div>
 					<div class="bottonH">
 						<input type="submit" class="btn btn-primary btn-sm" value="Update"/>
