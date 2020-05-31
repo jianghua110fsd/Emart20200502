@@ -1,7 +1,11 @@
   <div style="width:83%; float:right; border-width: 2px;">
     <div id="keywordArea" class="row">
-      <div class="col-xs-7"><input type="text" class="form-control" style="width: 400px;" placeholder="Input a keyword" /></div>
-      <div class="col-xs-5 ml-2"><button type="button" class="btn btn-primary" style="display: inline-block;">Search</button></div>
+      <div class="col-xs-7">
+      	<input type="text" class="form-control" style="width: 400px;" [(ngModel)]="keyword" placeholder="Input a keyword" />
+      </div>
+      <div class="col-xs-5 ml-2">
+      	<button type="button" class="btn btn-primary" style="display: inline-block;" (click)="bsearch()">Search</button>
+      </div>
     </div>
     <div id="itemListArea" class="row mt-2">
       <h4 style="width: 20%;">Item list</h4>
@@ -20,12 +24,12 @@
               <tr>
                   <td><a [routerLink]="['/itemdetail', productID]" routerLinkActive="router-link-active" >{{ item.productId }}</a></td>
                   <td>{{ item.productName}}</td>
-                  <td>{{ item.categoryId}}</td>
-                  <td>{{ item.subcategoryId}}</td>
+                  <td>{{ item.categoryName}}</td>
+                  <td>{{ item.subcategoryName}}</td>
                   <td align="right">{{ item.currentPrice}}</td>
                   <td align="right">{{ item.currentStock}}</td>
                   <td>{{ item.description}}</td>
-                  <td align="center"><button type="button" class="btn btn-primary btn-sm">Add to cart</button></td>
+                  <td align="center"><button type="button" class="btn btn-primary btn-sm" (click)="addToCart(item)">Add to cart</button></td>
               </tr>
               </tbody>
           </table>
@@ -38,26 +42,26 @@
 
       <div class="form-group">
         <label for="category1">Category:</label>
-        <select class="form-control" id="category1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+        <select class="form-control" id="category1" [(ngModel)]="categoryId">
+          <option></option>
+          <option>c1</option>
+          <option>c2</option>
         </select>
         <br>
         <label for="category2">Sub category:</label>
-        <select class="form-control" id="category2">
-          <option>11</option>
-          <option>12</option>
-          <option>21</option>
-          <option>22</option>
-          <option>31</option>
-          <option>32</option>
+        <select class="form-control" id="category2" [(ngModel)]="subcategoryId">
+          <option></option>
+          <option>c11</option>
+          <option>c12</option>
+          <option>c13</option>
+          <option>c21</option>
+          <option>c22</option>
         </select>
         <br>
         <label for="priceFrom">Price range:</label>
-        <input type="text" class="form-control" id="priceFrom"/>
+        <input type="text" class="form-control" id="priceFrom" [(ngModel)]="priceFrom"/>
         ~
-        <input type="text" class="form-control" id="priceTo"/>
+        <input type="text" class="form-control" id="priceTo" [(ngModel)]="priceTo"/>
       </div>
 
   </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Seller } from '../seller';
-import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-signseller',
@@ -9,12 +9,13 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./signseller.component.css']
 })
 export class SignsellerComponent implements OnInit {
-
+    errorMessage: String;
     sellerId: String;
     sellerName: string;
     password: string;
+    rpassword: string;
     companyName: string;
-    GSTIN: string;
+    gstin: string;
     companyBrief: string;
     postalAddress: string;
     website: string;
@@ -22,7 +23,7 @@ export class SignsellerComponent implements OnInit {
     contactNumber: string;
     sellerIn: any;
 
-  constructor(protected loginService: LoginService,
+  constructor(protected userService: UserService,
     private router: Router,
     protected activatedRoute: ActivatedRoute) { }
 
@@ -30,12 +31,22 @@ export class SignsellerComponent implements OnInit {
   }
   goAddSeller(): void {
 
+    if (this.sellerId == null) {
+      this.errorMessage = "Please input your Id";
+      return;
+    } else if (this.sellerId.length > 15) {
+      this.errorMessage = "Your Id is too long";
+      return;
+    } else if (this.rpassword != this.password) {
+      this.errorMessage = "Re-type password is not same";
+      return;
+    }
     let seller : Seller = {
     sellerId: this.sellerId,
     sellerName: this.sellerName,
     password: this.password,
     companyName: this.companyName,
-    GSTIN: this.GSTIN,
+    gstin: this.gstin,
     companyBrief: this.companyBrief,
     postalAddress: this.postalAddress,
     website: this.website,
@@ -43,7 +54,7 @@ export class SignsellerComponent implements OnInit {
     contactNumber: this.contactNumber
     };
 
-    this.loginService.addSeller(seller).subscribe(
+    this.userService.addSeller(seller).subscribe(
       (response) => {
       this.sellerIn = response;
         if (this.sellerIn.sellerName != null) {

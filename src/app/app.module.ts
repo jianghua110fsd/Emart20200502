@@ -26,6 +26,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app.routes';
 import { ChuckService } from './services/chuck.service';
+import { ProductService } from './services/product.service';
 import { LoginComponent } from './login/login.component';
 import { SearchItemComponent } from './search-item/search-item.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';

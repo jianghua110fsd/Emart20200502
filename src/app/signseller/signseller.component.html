@@ -1,43 +1,43 @@
 <h3 class="form-title">Register for your account</h3>
 <div class="form row">
 <br/>
-				<div class="col-sm-6 col-md-6"  style="text-align: center;">
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="Seller ID" name="seller_id" [(ngModel)]="sellerId" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="Seller Name" name="seller_name" [(ngModel)]="sellerName" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="password" placeholder="Password" [(ngModel)]="password" name="password"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" placeholder="Company Name" [(ngModel)]="companyName" name="companyname"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" placeholder="GSTIN TAX NO" [(ngModel)]="GSTIN" name="GSTIN"/>
-					</div>
-					<div class="textH">
-							<input class="form-control" type="text" placeholder="Postal Address" [(ngModel)]="postalAddress" name="postalAddress"/>
-					</div>
-					<div class="textH">
-							<input class="form-control" type="text" placeholder="Website" [(ngModel)]="website" name="website"/>
-					</div>
-					<div class="textH">
-							<input class="form-control" type="text" placeholder="Brief about company" [(ngModel)]="companyBrief" name="company_brief"/>
-					</div>
-					<div class="textH">
-							<input class="form-control eamil" type="text" placeholder="E-mail" [(ngModel)]="email" name="email"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" placeholder="Contact number" [(ngModel)]="contactNumber" name="contactNumber"/>
-					</div>
-					<div class="bottonH">
-						<input type="submit" class="btn btn-primary btn-sm" value="Register" (click)="goAddSeller()"/>
-						<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value="Back"/>
-					</div>
-				</div>
+	<div class="col-sm-6 col-md-6"  style="text-align: center;">
+        <p class="text-danger">{{errorMessage}}</p>
+		<div class="textH">
+			<input class="form-control required" type="text" placeholder="Seller ID" name="seller_id" [(ngModel)]="sellerId" autofocus="autofocus"/>
 		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" placeholder="Seller Name" name="seller_name" [(ngModel)]="sellerName"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="password" placeholder="Password" [(ngModel)]="password" name="password"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="password" placeholder="Re-type Your Password" [(ngModel)]="rpassword"  name="rpassword"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" placeholder="Company Name" [(ngModel)]="companyName" name="companyname"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" placeholder="GSTIN TAX NO" [(ngModel)]="gstin" name="gstin"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Brief about company" [(ngModel)]="companyBrief" name="company_brief"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Postal Address" [(ngModel)]="postalAddress" name="postalAddress"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Website" [(ngModel)]="website" name="website"/>
+		</div>		<div class="textH">
+			<input class="form-control eamil" type="text" placeholder="E-mail" [(ngModel)]="email" name="email"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" placeholder="Contact number" [(ngModel)]="contactNumber" name="contactNumber"/>
+		</div>
+		<div class="bottonH">
+			<input type="submit" class="btn btn-primary btn-sm" value="Register" (click)="goAddSeller()"/>
+		<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value="Back"/>
+		</div>
+	</div>
+</div>

@@ -3,7 +3,7 @@ export interface Seller {
     sellerName: string;
     password: string;
     companyName: string;
-    GSTIN: string;
+    gstin: string;
     companyBrief: string;
     postalAddress: string;
     website: string;

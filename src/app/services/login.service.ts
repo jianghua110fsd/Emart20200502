@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Buyer } from '../buyer';
 import { Seller } from '../seller';
 
@@ -7,47 +6,25 @@ import { Seller } from '../seller';
   providedIn: 'root'
 })
 export class LoginService {
+  loggedIn: boolean;
+  buyer: Buyer;
+  seller: Seller;
 
-  currentBuyer: any;
-  currentSeller: any;
+  constructor() { }
 
-  constructor(protected http: HttpClient) { }
-
-  //Accessing end point for validating the buyer credintionals.
-  validateBuyer(username: string, password: string) {
-    let credentials = username + ":" + password;
-    let headers = new HttpHeaders();
-    headers = headers.set("Authorization", credentials);
-    return this.http.get("http://localhost:8088/ms-login-service/login/buyer", { headers });
+  loginBuyer(buyer: Buyer) {
+    this.buyer = buyer;
+    this.loggedIn = true;
   }
 
-  validateSeller(username: string, password: string) {
-    let credentials = username + ':' + password;
-    let headers = new HttpHeaders();
-    headers = headers.set("Authorization", credentials);
-    return this.http.get("http://localhost:8088/ms-login-service/login/seller", { headers });
+  loginSeller(seller: Seller) {
+    this.seller = seller;
+    this.loggedIn = true;
   }
 
-  addBuyer(buyer: Buyer) {
-    return this.http.post("http://localhost:8088/ms-user-service/user/binsert", buyer);
+  logout() {
+    this.loggedIn = false;
+    this.buyer = null;
+    this.seller = null;
   }
-
-  addSeller(seller: Seller) {
-    return this.http.post("http://localhost:8088/ms-user-service/user/sinsert", seller);
-  }
-
-
-  setBuyer(currentBuyer: any) {
-    this.currentBuyer = currentBuyer;
-  }
-  getCurrentBuyer() {
-    return this.currentBuyer;
-  }
-  setSeller(currentSeller: any){
-    this.currentSeller = currentSeller;
-  }
-  getCurrentSeller() {
-    return this.currentSeller;
-  }
-  
 }

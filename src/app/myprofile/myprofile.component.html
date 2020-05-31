@@ -3,44 +3,44 @@
 <h3 class="form-title">Account info</h3>
 
 <div class="form row">
-<br/>
-				<div class="col-sm-6 col-md-6"  style="text-align: center;">
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="User ID" readonly name="userid" id="seller_id" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="Username" name="username" value="yangyang" id="seller_name" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="companyname" value="julong" id="company_name" name="companyname"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="GSTIN TAX NO" value="tax341342345234234" id="GSTIN" name="GSTIN"/>
-					</div>
-					<div class="textH">
-						<input class="form-control" type="text" placeholder="Brief about company" value="100 years old" id="company_brief" name="brief"/>
-					</div>
-					<div class="textH">
-						<input class="form-control" type="text" placeholder="Postal_address" value="dalian" id="postal_address" name="address"/>
-					</div>
-					<div class="textH">
-						<input class="form-control" type="text" placeholder="Website" value="www.jiangyang.com" id="website" name="website"/>
-					</div>
-					<div class="textH">
-						<input class="form-control eamil" type="text" placeholder="Email" value="yangjiang@email" id="email" name="email"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" placeholder="Contact number" value="520-1314" id="contact_number" name="contactNB"/>
-					</div>
-					<div class="bottonH">
-						<input type="submit" class="btn btn-primary btn-sm" value="Update"/>
-						<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value="Back"/>
-					</div>
-				</div>
+	<div class="col-sm-6 col-md-6"  style="text-align: center;">
+        <p class="text-danger">{{MessageArea}}</p>
+		<div class="textH">
+			<input class="form-control" type="text" readonly name="seller_id" [(ngModel)]="sellerId"/>
 		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" name="seller_name" [(ngModel)]="sellerName" autofocus="autofocus"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="password" [(ngModel)]="password" name="password"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="password" [(ngModel)]="rpassword"  name="rpassword"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" [(ngModel)]="companyName" name="companyname"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" [(ngModel)]="gstin" name="gstin"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" [(ngModel)]="companyBrief" name="company_brief"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" [(ngModel)]="postalAddress" name="postalAddress"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" [(ngModel)]="website" name="website"/>
+		</div>
+		<div class="textH">
+			<input class="form-control eamil" type="email" [(ngModel)]="email" name="email"/>
+		</div>
+		<div class="textH">
+			<input class="form-control required" type="text" [(ngModel)]="contactNumber" name="contactNumber"/>
+		</div>
+		<div class="bottonH">
+		<input type="submit" class="btn btn-primary btn-sm" value="Update" (click)="goUpdate()"/>
+			<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value="Back"/>
+			</div>
+		</div>
+	</div>

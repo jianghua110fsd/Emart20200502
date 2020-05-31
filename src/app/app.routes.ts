@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'seller-top', component: SellerTopComponent },
     { path: 'reports', component: ReportsComponent },
     { path: 'myprofile', component: MyprofileComponent },
-    { path: 'item-maitenance/:productId', component: ItemMaitenanceComponent },
+    { path: 'item-maitenance/:prdId', component: ItemMaitenanceComponent },
     { path: 'item-list', component: ItemListComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'signseller', component: SignsellerComponent },

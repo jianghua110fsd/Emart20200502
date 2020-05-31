@@ -3,29 +3,31 @@
   <table style="width: 100%;" class="table-bordered table-hover table-condensed">
     <tr style="background-color: #CAE8EA;">
         <th style="width: 3%;">Sel.</th>
-        <th style="width: 10%;">Product Id</th>
+        <th style="width: 9%;">Product Id</th>
         <th style="width: 15%;">Product Name</th>
-        <th style="width: 15%;">Seller Id</th>
+        <th style="width: 13%;">Category</th>
+        <th style="width: 13%;">Sub category</th>
+        <th style="width: 9%;">Unit</th>
         <th style="width: 9%;">Price</th>
         <th style="width: 9%;">Quantity</th>
-        <th style="width: 10%;">Amount</th>
-        <th style="width: 30%;">Remarks</th>
+        <th style="width: 20%;">Remarks</th>
     </tr>
-  <tbody *ngFor="let order of orders; index as productId">
+  <tbody *ngFor="let cartItem of searchlist index as productId">
     <tr>
         <td align="center"><input type="checkbox" name="checkAll" /></td>
-        <td><a [routerLink]="['/itemdetail', productId]" routerLinkActive="router-link-active" >{{ order.product_id }}</a></td>
-        <td>{{ order.product_name }}</td>
-        <td>{{ order.seller_id }}</td>
-        <td align="right">{{ order.purchase_price }}</td>
-        <td align="right">{{ order.purchase_num }}</td>
-        <td align="right">{{ order.purchase_amount }}</td>
-        <td>{{ order.remarks }}</td>
+        <td><a [routerLink]="['/itemdetail', productId]" routerLinkActive="router-link-active" >{{ cartItem.productId }}</a></td>
+        <td>{{ cartItem.productName }}</td>
+        <td>{{ cartItem.categoryName }}</td>
+        <td>{{ cartItem.subcategoryName }}</td>
+        <td>{{ cartItem.unit }}</td>
+        <td align="right">{{ cartItem.purchasePrice }}</td>
+        <td align="right">{{ cartItem.purchaseNum }}</td>
+        <td>{{ cartItem.remarks }}</td>
     </tr>
   </tbody>
   </table>
 </div>
 <div style="width: 100%; margin-top: 30px;">
-  <button type="button" class="btn btn-primary btn-sm">Remove items</button>
-  <button type="button" class="btn btn-primary btn-sm" routerLink="/checkout">Checkout</button>
+  <div style="float: inline-start;"><button type="button" class="btn btn-primary btn-sm">Remove items</button></div>
+  <div style="float: inline-end;"><button type="button" class="btn btn-primary btn-sm" routerLink="/checkout">Checkout</button></div>
 </div>

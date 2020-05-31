@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { searchlist } from '../searchlist';
+import { Searchlist } from '../searchlist';
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
@@ -13,6 +12,6 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.item = searchlist[+params.get('productID')];
+      this.item = Searchlist[+params.get('productID')];
     })}
 }

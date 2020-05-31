@@ -1,37 +1,44 @@
 <app-top-bar></app-top-bar>
 <div class="form row" style="margin-top: 5px;">
 <br/>
-				<div  class="col-md-6 col-md-offset-3" *ngIf="product"> 
-					<div class="textH">
-						<input class="form-control required" readonly type="text" value="{{product.product_id}}" name="product_id" id="product_id" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-							<input class="form-control" type="text" value="{{ product.product_name }}" id="product_name" name="product_name"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" value="{{product.category_id}}" name="category_id" id="category_id" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-						<input class="form-control required" type="text" value="{{product.subcategory_id}}" name="subcategory_id" id="subcategory_id" autofocus="autofocus"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.unit}}" id="unit" name="unit"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.current_price}}" id="current_price" name="current_price"/>
-					</div>
-					<div class="textH">
-							<input class="form-control" type="text" value="{{product.current_stock}}" id="current_stock" name="current_stock"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.remarks}}" id="remarks" name="remarks"/>
-					</div>
-					<div class="textH">
-							<input class="form-control required" type="text" value="{{product.description}}" id="description" name="description"/>
-					</div>
-					<div class="bottonH">
-						<input type="submit" class="btn btn-primary btn-sm" value="Update"/>
-						<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value=" Back "/>
-					</div>
-				</div>
+	<div class="col-md-6 col-md-offset-3"> 
+        <p class="text-danger">{{massageArea}}</p>
+		<div class="textH">
+		<input class="form-control" type="text" [(ngModel)]="productId" name="productId" readonly />
 		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Product Name" [(ngModel)]="productName" name="productName"/>
+		</div>
+		<div class="textH">
+		<input class="form-control" type="text" placeholder="Category ID" name="categoryId" [(ngModel)]="categoryId"/>
+		</div>
+		<div class="textH">
+		<input class="form-control" type="text" placeholder="Category Name" name="categoryName" [(ngModel)]="categoryName"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Sub category ID" name="subcategoryId" [(ngModel)]="subcategoryId"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Sub category Name" name="subcategoryName" [(ngModel)]="subcategoryName"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Unit" [(ngModel)]="unit" name="unit"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="number" placeholder="Current Price" [(ngModel)]="currentPrice" name="currentPrice"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="number" placeholder="Current Stock" [(ngModel)]="currentStock" name="currentStock"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Description" [(ngModel)]="description" name="description"/>
+		</div>
+		<div class="textH">
+			<input class="form-control" type="text" placeholder="Remarks" [(ngModel)]="remarks" name="remarks"/>
+		</div>
+		<div class="bottonH">
+			<input type="submit" class="btn btn-primary btn-sm" value="Update" (click)="saveProduce()"/>
+			<input type="submit" class="btn btn-primary btn-sm" style="margin-left: 8px;" (click)="goBack()"  id="back_btn" value=" Back "/>
+		</div>
+	</div>
+</div>

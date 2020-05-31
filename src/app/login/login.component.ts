@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConfigService } from '../services/config.service';
+import { UserService } from '../services/user.service';
 import { LoginService } from '../services/login.service';
 
 
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   currentSeller: any;
   seller: boolean;
 
-  constructor(protected loginService: LoginService,
+  constructor(protected userService: UserService,
+    protected loginService: LoginService,
     private router: Router,
     protected activatedRoute: ActivatedRoute,
     private configService: ConfigService) { }
@@ -52,12 +54,13 @@ export class LoginComponent implements OnInit {
   validate() {
     this.checInput();
     if (this.sign == 'buyer') {
-      this.loginService.validateBuyer(this.username, this.password)
+      this.userService.validateBuyer(this.username, this.password)
         .subscribe(
           (response) => {
             this.currentBuyer = response;
-            this.loginService.setBuyer(this.currentBuyer);
+            this.userService.setBuyer(this.currentBuyer);
             if (this.currentBuyer.buyerName != null) {
+              this.loginService.loginBuyer(this.currentBuyer);
               this.router.navigate(['itemsearch']);
             } else {
               this.errorMessage = "Invalid Username/Password for Buyer";
@@ -67,12 +70,13 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.sign == 'seller') {
-      this.loginService.validateSeller(this.username, this.password)
+      this.userService.validateSeller(this.username, this.password)
         .subscribe(
           (response) => {
             this.currentSeller = response;
-            this.loginService.setSeller(this.currentSeller);
+            this.userService.setSeller(this.currentSeller);
             if (this.currentSeller.sellerName != null) {
+              this.loginService.loginSeller(this.currentSeller);
               this.router.navigate(['seller-top']);
             } else {
               this.errorMessage = "Invalid Username/Password for Seller";

@@ -4,28 +4,36 @@
 <table class="table-bordered table-hover table-condensed" style="width: 100%;">
   <thead>
     <tr style="background-color: burlywood;">
+      <th>Order No</th>
+      <th>Order Date</th>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Purchase Price</th>
+      <th>Purchase Number</th>
+      <th>Purchase Amount</th>
       <th>Transaction ID</th>
       <th>Buyer</th>
-      <th>Order Date</th>
-      <th>Product Name</th>
-      <th>Product ID</th>
-      <th>Unit</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Amount</th>
+      <th>Buyer Name</th>
+      <th>Transaction Amount</th>
+      <th>Transaction Date</th>
+      <th>Remarks</th>
     </tr>
   </thead>
   <tbody *ngFor="let order of reports; index as productId">
     <tr>
-      <td>{{ order.transactionID }}</td>
-      <td>{{ order.buyer }}</td>
+      <td>{{ order.orderNo }}</td>
       <td>{{ order.orderDate }}</td>
+      <td>{{ order.productId }}</td>
       <td>{{ order.productName }}</td>
-      <td>{{ order.productNO }}</td>
-      <td>{{ order.unit }}</td>
-      <td>{{ order.price }}</td>
-      <td>{{ order.quantity }}</td>
-      <td>{{ order.amount }}</td>
+      <td>{{ order.purchasePrice }}</td>
+      <td>{{ order.purchaseNum }}</td>
+      <td>{{ order.purchaseAmount }}</td>
+      <td>{{ order.transactionId }}</td>
+      <td>{{ order.buyerId }}</td>
+      <td>{{ order.buyerName }}</td>
+      <td>{{ order.transactionAmount }}</td>
+      <td>{{ order.transactionDate }}</td>
+      <td>{{ order.remarks }}</td>
     </tr>
   </tbody>
 </table>
