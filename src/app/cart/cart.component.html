@@ -14,8 +14,17 @@
     </tr>
   <tbody *ngFor="let cartItem of searchlist index as productId">
     <tr>
-        <td align="center"><input type="checkbox" name="checkAll" /></td>
-        <td><a [routerLink]="['/itemdetail', productId]" routerLinkActive="router-link-active" >{{ cartItem.productId }}</a></td>
+        <td align="center">
+        	<span *ngIf="cartItem.chkFlg; else noCheckTemp">
+        		<input type="checkbox" name="cartSel" (click)="selectCheckbox($event.target.checked, cartItem)" checked/>
+        	</span>
+       		<ng-template #noCheckTemp>
+  				<input type="checkbox" name="cartSel" (click)="selectCheckbox($event.target.checked, cartItem)"/>
+			</ng-template>
+        	
+        	
+        </td>
+        <td><a [routerLink]="['/itemdetail', productId]" (click)="viewDetail(cartItem.productId)" routerLinkActive="router-link-active" >{{ cartItem.productId }}</a></td>
         <td>{{ cartItem.productName }}</td>
         <td>{{ cartItem.categoryName }}</td>
         <td>{{ cartItem.subcategoryName }}</td>
@@ -28,6 +37,9 @@
   </table>
 </div>
 <div style="width: 100%; margin-top: 30px;">
-  <div style="float: inline-start;"><button type="button" class="btn btn-primary btn-sm">Remove items</button></div>
-  <div style="float: inline-end;"><button type="button" class="btn btn-primary btn-sm" routerLink="/checkout">Checkout</button></div>
+  <div style="float: inline-start;"><button type="button" class="btn btn-primary btn-sm" (click)="removeItems()">Remove items</button></div>
+  <div style="float: inline-start;" *ngIf="hasres">
+  	<button type="button" class="btn btn-primary btn-sm" (click)="clearCart()">Clear cart</button>
+  </div>
+  <div style="float: inline-end;"><button type="button" class="btn btn-primary btn-sm" (click)="checkout()">Checkout</button></div>
 </div>

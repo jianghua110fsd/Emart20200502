@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -27,6 +26,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app.routes';
 import { ChuckService } from './services/chuck.service';
 import { ProductService } from './services/product.service';
+import { CheckoutService } from './services/checkout.service';
 import { LoginComponent } from './login/login.component';
 import { SearchItemComponent } from './search-item/search-item.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
@@ -44,6 +44,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { SignsellerComponent } from './signseller/signseller.component';
 import { BuyerprofileComponent } from './buyerprofile/buyerprofile.component';
 import { ItemInsertComponent } from './item-insert/item-insert.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,7 @@ import { ItemInsertComponent } from './item-insert/item-insert.component';
     FormsModule,
     MatDialogModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ChuckService],
   bootstrap: [AppComponent]

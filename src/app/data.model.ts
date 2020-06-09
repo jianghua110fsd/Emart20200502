@@ -6,10 +6,10 @@ export interface Product {
     sellerId: string;
     subcategoryId: string;
     subcategoryName: string;
-    description: string;
     unit: string;
     currentPrice: number;
     currentStock: number;
+    description: string;
     remarks: string;
 }
 
@@ -21,7 +21,7 @@ export interface PrdSearchCond {
     priceTo: number;
 }
 
-export interface Cart {
+export interface CartReq {
 	buyerId: string;
     productId: string;
     productName: string;
@@ -29,6 +29,7 @@ export interface Cart {
     purchasePrice: number;
     purchaseNum: number;
     remarks: string;
+    fromDetail: boolean;
 }
 
 export interface CartResp {
@@ -36,8 +37,44 @@ export interface CartResp {
     productName: string;
     categoryName: string;
     subcategoryName: string;
+	sellerId: String;
     unit: string;
     purchasePrice: number;
     purchaseNum: number;
     remarks: string;
+    chkFlg: boolean;
+}
+
+export interface RemoveCartReq {
+    buyerId: string;
+    productIds: string[];
+}
+
+export interface OrderReq {
+	buyerId: string;
+	buyerName: string;
+    productId: string;
+    productName: string;
+	sellerId: String;
+    purchasePrice: number;
+    purchaseNum: number;
+    purchaseAmount: number;
+    transactionType: string;
+    transactionAmount: number;
+    remarks: string;
+}
+
+export interface OrderResp {
+	orderNo: string;
+	orderDate: string;
+    productId: string;
+    productName: string;
+    categoryName: string;
+    subcategoryName: string;
+    unit: string;
+    purchasePrice: number;
+    purchaseNum: number;
+    purchaseAmount: number;
+    transactionType: string;
+    transactionAmount: number;
 }

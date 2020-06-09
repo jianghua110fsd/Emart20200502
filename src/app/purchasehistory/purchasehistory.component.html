@@ -3,28 +3,28 @@
   <table style="width: 100%;" class="table-bordered table-hover table-condensed">
     <tr style="background-color: #CAE8EA;">
         <th style="width: 9%;">Order no.</th>
-        <th style="width: 11%;">Order date</th>
-        <th style="width: 9%;">Buyer</th>
-        <th style="width: 9%;">Seller</th>
-        <th style="width: 15%;">Transaction Id</th>
-        <th style="width: 13%;">Product Id</th>
-        <th style="width: 13%;">Product Name</th>
-        <th style="width: 7%;">Price</th>
-        <th style="width: 7%;">Unit</th>
-        <th style="width: 7%;">Amount</th>
+        <th style="width: 9%;">Order date</th>
+        <th style="width: 9%;">Product Id</th>
+        <th style="width: 15%;">Product Name</th>
+        <th style="width: 13%;">Category</th>
+        <th style="width: 13%;">Sub category</th>
+        <th style="width: 8%;">Unit</th>
+        <th style="width: 8%;">Price</th>
+        <th style="width: 8%;">Quantity</th>
+        <th style="width: 8%;">Amount</th>
     </tr>
-    <tbody *ngFor="let order of history; index as productId">
-      <tr>
-        <td>{{ order.order_no }}</td>
-        <td>{{ order.purchase_date }}</td>
-        <td>{{ order.buyer_id }}</td>
-        <td>{{ order.seller_id }}</td>
-        <td>{{ order.transaction_id }}</td>
-        <td>{{ order.product_id }}</td>
-        <td>{{ order.product_name }}</td>
-        <td align="right">{{ order.purchase_price }}</td>
-        <td align="right">{{ order.purchase_num }}</td>
-        <td align="right">{{ order.purchase_amount }}</td>
+    <tbody *ngFor="let order of searchlist; index as orderNo">
+    <tr>
+        <td>{{ order.orderNo }}</td>
+        <td>{{ order.orderDate }}</td>
+        <td>{{ order.productId }}</td>
+        <td>{{ order.productName }}</td>
+        <td>{{ order.categoryName }}</td>
+        <td>{{ order.subcategoryName }}</td>
+        <td>{{ order.unit }}</td>
+        <td align="right">{{ order.purchasePrice }}</td>
+        <td align="right">{{ order.purchaseNum }}</td>
+        <td align="right">{{ order.purchaseAmount }}</td>
     </tr>
     </tbody>
   </table>
