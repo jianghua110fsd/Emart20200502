@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductService} from '../services/product.service';
 import { Product, PrdSearchCond, CartReq} from '../data.model';
+import { ProductService } from '../services/product.service';
 
 // import { searchlist } from '../searchlist';
 @Component({
@@ -23,7 +23,7 @@ export class SearchItemComponent implements OnInit {
   priceTo: number;
 
   constructor(protected productService: ProductService,
-				protected router: Router) {
+    private router: Router) {
   }
 
   ngOnInit() {

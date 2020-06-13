@@ -11,7 +11,7 @@ export const reports = [
     buyerId: String,
     buyerName: String,
     transactionAmount: Number,
-    transactionDate: String,
+    transactionDate: Date,
     remarks: String
   }
 ];

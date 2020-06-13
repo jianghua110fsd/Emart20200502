@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from '../product';
+import { Product } from '../data.model';
 import { LoginService } from '../services/login.service';
 import { ProductService } from '../services/product.service';
 
@@ -11,18 +11,18 @@ import { ProductService } from '../services/product.service';
 })
 export class ItemInsertComponent implements OnInit {
 
-    massageArea: String;
-    productId: String;
-    productName: String;
-    categoryId: String;
-    categoryName: String;
-    subcategoryId: String;
-    subcategoryName: String;
-    description: String;
-    unit:  String;
-    currentPrice: Number;
-    currentStock:  Number;
-    remarks:  String;
+    massageArea: string;
+    productId: string;
+    productName: string;
+    categoryId: string;
+    categoryName: string;
+    subcategoryId: string;
+    subcategoryName: string;
+    description: string;
+    unit:  string;
+    currentPrice: number;
+    currentStock:  number;
+    remarks:  string;
     productIn: any;
     productM: any;
 

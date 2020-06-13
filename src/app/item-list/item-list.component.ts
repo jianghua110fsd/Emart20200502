@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from '../product';
 import { Searchlist } from '../searchlist';
 import { LoginService } from '../services/login.service';
 import { ProductService } from '../services/product.service';
+import { Product } from '../data.model';
 
 @Component({
   selector: 'app-item-list',
@@ -12,7 +12,7 @@ import { ProductService } from '../services/product.service';
 })
 export class ItemListComponent implements OnInit {
   productlist: any;
-  massageArea: String;
+  massageArea: string;
 
   constructor(protected loginService: LoginService,
     protected productService: ProductService,

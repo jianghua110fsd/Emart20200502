@@ -9,8 +9,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./signseller.component.css']
 })
 export class SignsellerComponent implements OnInit {
-    errorMessage: String;
-    sellerId: String;
+    errorMessage: string;
+    sellerId: string;
     sellerName: string;
     password: string;
     rpassword: string;

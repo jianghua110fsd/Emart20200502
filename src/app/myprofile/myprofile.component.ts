@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MyprofileComponent implements OnInit {
 
-    MessageArea: String;
-    sellerId: String;
+    MessageArea: string;
+    sellerId: string;
     sellerName: string;
     password: string;
     rpassword: string;

@@ -1,5 +1,5 @@
 export interface Seller {
-    sellerId: String;
+    sellerId: string;
     sellerName: string;
     password: string;
     companyName: string;
