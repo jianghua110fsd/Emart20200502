@@ -1,4 +1,4 @@
-export const searchlist = [
+export const products = [
   {
     productName: 'Phone XL',
     productNO: 'P00001',
@@ -7,26 +7,26 @@ export const searchlist = [
     unit: 'Tai',
     price: 3888,
     stockNumber: 88,
-    remarks:'Apple'
+    remarks: 'A large phone'
   },
   {
-    productName: '4MATIC',
+    productName: '4MATIC DRP 37435',
     productNO: 'A00002',
     category: 'Automobile',
     subcategory: 'Mercedes-Benz',
     unit: 'Tai',
     price: 588888,
     stockNumber: 99,
-    remarks:'DRP 37435'
+    remarks: 'A super car'
   },
   {
-    productName: 'Casio',
+    productName: 'Casio 3500',
     productNO: 'W00003',
     category: 'Watch',
     subcategory: 'Quartz watch',
     unit: 'Kuai',
     price: 18888,
     stockNumber: 999,
-    remarks:'Swatch Group'
+    remarks: 'Swatch Group,A good Watch'
   },
 ];

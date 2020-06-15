@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <label for="category1">Category:</label>
-        <select class="form-control" id="category1" [(ngModel)]="categoryId" (change)="getSubCategoryOptions($event.target.value)" >
+        <select class="form-control" id="category1" [(ngModel)]="categoryId" (change)="getSubCategoryOptions($event.target.selectedIndex)" >
           <option value="" selected>Please select:</option>
           <option *ngFor="let item of categorylist" [value]='item.categoryId'>{{item.categoryName}}</option>
         </select>

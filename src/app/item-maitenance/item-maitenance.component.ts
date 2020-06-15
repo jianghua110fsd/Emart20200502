@@ -36,7 +36,7 @@ export class ItemMaitenanceComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
-      let productId: any = params.get('prdId');
+      let productId: any = params.get('productId');
       this.productService.getProduct(productId).subscribe(
         (response: any) => {
           this.productM = response;

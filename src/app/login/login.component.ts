@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   buyer: boolean;
   currentSeller: any;
   seller: boolean;
+  okFlg: boolean;
 
   constructor(protected userService: UserService,
     protected loginService: LoginService,
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('Login');
+	this.username = '';
+	this.password = '';
+	this.okFlg = true;
     this.configService.isSeller = true;
       this.errorMessage = '';
   }
@@ -41,18 +45,32 @@ export class LoginComponent implements OnInit {
     this.configService.isSeller = true;
     this.router.navigate([`/seller-top`]);
   }
+
   checInput() {
     if (this.sign != 'buyer' && this.sign != 'seller') {
-      this.errorMessage = "Please select your roles";
+      this.errorMessage = "Please select your role";
+	  this.okFlg = false;
+	  return;
     } else if (this.username.length == 0) {
       this.errorMessage = "Please input your username";
+	  this.okFlg = false;
+	  return;
     } else if (this.password.length == 0) {
       this.errorMessage = "Please input your password";
+	  this.okFlg = false;
+	  return;
     }
 
+	this.okFlg = true;
   }
+
   validate() {
     this.checInput();
+	// when error occurs
+    if (!this.okFlg) {
+		return;
+    }
+
     if (this.sign == 'buyer') {
       this.userService.validateBuyer(this.username, this.password)
         .subscribe(
@@ -61,7 +79,8 @@ export class LoginComponent implements OnInit {
             this.userService.setBuyer(this.currentBuyer);
             if (this.currentBuyer.buyerName != null) {
               this.loginService.loginBuyer(this.currentBuyer);
-              this.router.navigate(['itemsearch']);
+              // this.router.navigate(['itemsearch']);
+			  this.toBuyerTop();
             } else {
               this.errorMessage = "Invalid Username/Password for Buyer";
             }
@@ -77,7 +96,8 @@ export class LoginComponent implements OnInit {
             this.userService.setSeller(this.currentSeller);
             if (this.currentSeller.sellerName != null) {
               this.loginService.loginSeller(this.currentSeller);
-              this.router.navigate(['seller-top']);
+              //this.router.navigate(['seller-top']);
+			  this.toSellerTop();
             } else {
               this.errorMessage = "Invalid Username/Password for Seller";
             }
@@ -85,6 +105,7 @@ export class LoginComponent implements OnInit {
         );
     }
   }
+
   register() {
     if (this.sign != 'buyer' && this.sign != 'seller') {
       this.errorMessage = "Please select your roles";

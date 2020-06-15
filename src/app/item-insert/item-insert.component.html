@@ -10,16 +10,16 @@
 			<input class="form-control" type="text" placeholder="Product Name" [(ngModel)]="productName" name="productName"/>
 		</div>
 		<div class="textH">
-		<input class="form-control" type="text" placeholder="Category ID" name="categoryId" [(ngModel)]="categoryId"/>
+			<select class="form-control" id="category1" [(ngModel)]="categoryId" (change)="getSubCategoryOptions($event.target.selectedIndex)" >
+	          <option value="" selected>Select Category:</option>
+	          <option *ngFor="let item of categorylist" [value]='item.categoryId'>{{item.categoryName}}</option>
+	        </select>
 		</div>
 		<div class="textH">
-		<input class="form-control" type="text" placeholder="Category Name" name="categoryName" [(ngModel)]="categoryName"/>
-		</div>
-		<div class="textH">
-			<input class="form-control" type="text" placeholder="Sub category ID" name="subcategoryId" [(ngModel)]="subcategoryId"/>
-		</div>
-		<div class="textH">
-			<input class="form-control" type="text" placeholder="Sub category Name" name="subcategoryName" [(ngModel)]="subcategoryName"/>
+			<select class="form-control" id="category2" [(ngModel)]="subcategoryId" (change)="setSubCategoryInfo($event.target.selectedIndex)">
+	          <option value="" selected>Select Subcategory:</option>
+	          <option *ngFor="let item of subcategorylist" [value]='item.scPk.subcategoryId'>{{item.subcategoryName}}</option>
+	        </select>
 		</div>
 		<div class="textH">
 			<input class="form-control" type="text" placeholder="Unit" [(ngModel)]="unit" name="unit"/>

@@ -29,6 +29,8 @@ export class UserService {
   }
 
   addBuyer(buyer: Buyer) {
+	alert(buyer.buyerId);
+	alert(buyer.mobileNumber);
     return this.http.post("http://localhost:8088/ms-user-service/user/binsert", buyer);
   }
 

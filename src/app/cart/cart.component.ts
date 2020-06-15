@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService} from '../services/product.service';
 import { CheckoutService} from '../services/checkout.service';
 import { CartResp, RemoveCartReq} from '../data.model';
-//import { orders } from '../orders';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,17 +11,17 @@ import { CartResp, RemoveCartReq} from '../data.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  // orders = orders;
   searchlist: Array<CartResp>;
   hasres: boolean;
   selectProducts: Array<string> = [];
   // Back from Checkout page flag
   fromChkout: boolean;
 
-  constructor(protected productService: ProductService,
-				private router: Router,
-				private route: ActivatedRoute,
-				protected checkoutService: CheckoutService) { }
+  constructor(protected loginService: LoginService,
+              protected productService: ProductService,
+			  private router: Router,
+			  private route: ActivatedRoute,
+			  protected checkoutService: CheckoutService) { }
 
   ngOnInit() {
 	
@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
 	
 	// Reset flag
 	this.checkoutService.setFromItemDtlFlag(false);
-	this.productService.getCartInfo("b13").subscribe(
+	this.productService.getCartInfo(this.loginService.buyer.buyerId).subscribe(
       (response: any) => {
         this.searchlist = response;
 
@@ -109,7 +109,7 @@ export class CartComponent implements OnInit {
 	}
 	
 	let rmItems: RemoveCartReq = {
-		buyerId: "b13",
+		buyerId: this.loginService.buyer.buyerId,
 		productIds: this.selectProducts
 		
 	};
@@ -118,7 +118,7 @@ export class CartComponent implements OnInit {
       (response: any) => {
 		// When deleted count > 0, then let page reinit.
         if (response >= 0) {
-			this.productService.getCartInfo("b13").subscribe(
+			this.productService.getCartInfo(this.loginService.buyer.buyerId).subscribe(
       		(response: any) => {
         		this.searchlist = response;
 				this.selectProducts = [];
@@ -136,11 +136,11 @@ export class CartComponent implements OnInit {
 
   clearCart() {
 	
-	this.productService.clearCart("b13").subscribe(
+	this.productService.clearCart(this.loginService.buyer.buyerId).subscribe(
       (response: any) => {
 		// When deleted count > 0, then let page reload.
         if (response >= 0) {
-			this.productService.getCartInfo("b13").subscribe(
+			this.productService.getCartInfo(this.loginService.buyer.buyerId).subscribe(
       		(response: any) => {
         		this.searchlist = response;
 				this.selectProducts = [];

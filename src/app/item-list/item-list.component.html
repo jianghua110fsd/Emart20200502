@@ -18,7 +18,7 @@
     </tr>
   <tbody *ngFor="let product of productlist; index as prdNo">
     <tr >
-      <td><a Link="#" (click)="goUpdate(product.productId)">{{ product.productId }}</a></td>
+      <td><a [routerLink]="" (click)="goUpdate(product.productId)" routerLinkActive="router-link-active" >{{ product.productId }}</a></td>
       <td>{{ product.productName}}</td>
       <td>{{ product.categoryId }}</td>
       <td>{{ product.categoryName }}</td>

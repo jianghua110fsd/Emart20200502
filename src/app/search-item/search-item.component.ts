@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService} from '../services/product.service';
 import { Product, PrdSearchCond, CartReq} from '../data.model';
-import { ProductService } from '../services/product.service';
+import { LoginService } from '../services/login.service';
 
 // import { searchlist } from '../searchlist';
 @Component({
@@ -22,8 +23,9 @@ export class SearchItemComponent implements OnInit {
   priceFrom: number;
   priceTo: number;
 
-  constructor(protected productService: ProductService,
-    private router: Router) {
+  constructor(protected loginService: LoginService,
+              protected productService: ProductService,
+			  protected router: Router) {
   }
 
   ngOnInit() {
@@ -44,7 +46,19 @@ export class SearchItemComponent implements OnInit {
 
   }
 
-  getSubCategoryOptions(categoryId: string) {
+  getSubCategoryOptions(seletedIdx: any) {
+	var index = 0;
+	var categoryId = '';
+	var categoryNm = '';
+	for (const cat of this.categorylist) {
+		if (seletedIdx == index + 1) {
+			categoryId = cat.categoryId;
+			categoryNm = cat.categoryName;
+		}
+		
+		index ++;
+	}
+
 	this.subcategoryId = "";
     this.productService.getSubCategories(categoryId).subscribe(
       (response: any) => {
@@ -72,7 +86,7 @@ export class SearchItemComponent implements OnInit {
   addToCart(prd: Product) {
 	let cart: CartReq = {
 		// TODO: buyerId to be decided
-		buyerId: "b13",
+		buyerId: this.loginService.buyer.buyerId,
 		productId: prd.productId,
 		productName: prd.productName,
 		sellerId: prd.sellerId,

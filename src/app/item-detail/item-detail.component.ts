@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { CheckoutService} from '../services/checkout.service';
 import { Product, CartReq, CartResp } from '../data.model';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -15,7 +16,7 @@ export class ItemDetailComponent implements OnInit {
   quantity: number;
   addCartFlag: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, 
+  constructor(protected loginService: LoginService,private route: ActivatedRoute, private router: Router, 
 				private productService: ProductService, private checkoutService: CheckoutService) { }
 
   ngOnInit() {
@@ -41,8 +42,7 @@ export class ItemDetailComponent implements OnInit {
 
   addToCart(prd: Product) {
 	let cart: CartReq = {
-		// TODO: buyerId to be decided
-		buyerId: "b13",
+		buyerId: this.loginService.buyer.buyerId,
 		productId: prd.productId,
 		productName: prd.productName,
 		sellerId: prd.sellerId,
@@ -68,7 +68,6 @@ export class ItemDetailComponent implements OnInit {
 
   checkout(prd: Product) {
 	let chkItem: CartResp = {
-		// TODO: buyerId to be decided
 		productId: prd.productId,
 		productName: prd.productName,
 		categoryName: prd.categoryName,

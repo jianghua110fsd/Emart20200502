@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService} from '../services/product.service';
 import { CheckoutService} from '../services/checkout.service';
 import { CartResp, OrderReq } from '../data.model';
+import { LoginService } from '../services/login.service';
 
 //import { orders } from '../orders';
 @Component({
@@ -17,9 +18,10 @@ export class CheckoutComponent implements OnInit {
   chkoutItems: Array<OrderReq> = [];
   fromItemDtl: boolean;
   
-  constructor(protected checkoutService: CheckoutService,
-				protected productService: ProductService,
-				protected router: Router) { }
+  constructor(protected loginService: LoginService,
+              protected checkoutService: CheckoutService,
+			  protected productService: ProductService,
+			  protected router: Router) { }
 
   ngOnInit() {
 	this.chkoutItems = [];
@@ -41,8 +43,8 @@ export class CheckoutComponent implements OnInit {
     for (const cartItem of this.selectItems) {
 		let item: OrderReq = {
 			// TODO: buyer info to be decided
-			buyerId: "b13",
-			buyerName: "b13",
+			buyerId: this.loginService.buyer.buyerId,
+			buyerName: this.loginService.buyer.buyerName,
 			productId: cartItem.productId,
 			productName: cartItem.productName,
 			sellerId: cartItem.sellerId,

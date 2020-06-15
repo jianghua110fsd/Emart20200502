@@ -26,14 +26,74 @@ export class ItemInsertComponent implements OnInit {
     productIn: any;
     productM: any;
 
+	categorylist: any;
+	subcategorylist: any;
+
   constructor(protected loginService: LoginService,
     protected productService: ProductService,
     private router: Router,
     protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void  {
-};
+	this.categoryId = "";
+	this.subcategoryId = "";
+	this.productService.getCategories().subscribe(
+      (response: any) => {
+        this.categorylist = response;
+      }
+    )
+  };
+
+  getSubCategoryOptions(seletedIdx: any) {
+	if (seletedIdx == 0) {
+		this.categoryId = "";
+		this.categoryName = "";
+		this.subcategoryId = "";
+		this.subcategoryName = "";
+		this.subcategorylist = [];
+		return;
+	}
+	
+	var index = 0;
+	for (const cat of this.categorylist) {
+		if (seletedIdx == index + 1) {
+			this.categoryId = cat.categoryId;
+			this.categoryName = cat.categoryName;
+		}
+		
+		index ++;
+	}
+
+	this.subcategoryId = "";
+	this.subcategoryName = "";
+    this.productService.getSubCategories(this.categoryId).subscribe(
+      (response: any) => {
+        this.subcategorylist = response;
+      }
+    )
+  }
+
+  setSubCategoryInfo(seletedIdx: any) {
+	if (seletedIdx == 0) {
+		this.subcategoryId = "";
+		this.subcategoryName = "";
+		return;
+	}
+	
+	var index = 0;
+	for (const cat of this.subcategorylist) {
+		if (seletedIdx == index + 1) {
+			this.subcategoryId = cat.scPk.subcategoryId
+			this.subcategoryName = cat.subcategoryName;
+		}
+		
+		index ++;
+	}
+
+  }
+
   saveProduce (): void {
+	alert(this.categoryId+"-"+this.categoryName+"-"+this.subcategoryId+"-"+this.subcategoryName);
     if (this.productId == null) {
       this.massageArea = "Please input your Id";
       return;

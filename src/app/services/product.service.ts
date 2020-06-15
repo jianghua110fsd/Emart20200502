@@ -31,7 +31,7 @@ export class ProductService {
   }
 
   getCartInfo(buyerId: string) {
-	const params = new HttpParams().set('buyer', buyerId);
+    const params = new HttpParams().set('buyer', buyerId);
     return this.http.get('http://localhost:8088/ms-order-service/order/viewcart', { params });
   }
 
