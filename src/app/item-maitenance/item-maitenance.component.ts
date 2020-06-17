@@ -26,6 +26,9 @@ export class ItemMaitenanceComponent implements OnInit {
     productIn: any;
     productM: any;
 
+	categorylist: any;
+	subcategorylist: any;
+	
   constructor(
     protected loginService: LoginService,
     protected productService: ProductService,
@@ -35,6 +38,14 @@ export class ItemMaitenanceComponent implements OnInit {
   }
 
   ngOnInit() {
+	// Get category list
+	this.productService.getCategories().subscribe(
+      (response: any) => {
+        this.categorylist = response;
+      }
+    )
+
+	// Get product info
     this.activatedRoute.paramMap.subscribe(params => {
       let productId: any = params.get('productId');
       this.productService.getProduct(productId).subscribe(
@@ -52,11 +63,71 @@ export class ItemMaitenanceComponent implements OnInit {
             this.currentPrice = this.productM.currentPrice;
             this.currentStock = this.productM.currentStock;
             this.remarks = this.productM.remarks;
+ 	
+			// Sub categories
+			if (this.categoryId.length > 0) {
+				this.productService.getSubCategories(this.categoryId).subscribe(
+			      (response: any) => {
+			        this.subcategorylist = response;
+			      }
+			    )
+			}
+			
           }
         }
       );
-  })
-}
+    })
+
+  }
+
+  getSubCategoryOptions(seletedIdx: any) {
+	if (seletedIdx == 0) {
+		this.categoryId = "";
+		this.categoryName = "";
+		this.subcategoryId = "";
+		this.subcategoryName = "";
+		this.subcategorylist = [];
+		return;
+	}
+	
+	var index = 0;
+	for (const cat of this.categorylist) {
+		if (seletedIdx == index + 1) {
+			this.categoryId = cat.categoryId;
+			this.categoryName = cat.categoryName;
+		}
+		
+		index ++;
+	}
+
+	this.subcategoryId = "";
+	this.subcategoryName = "";
+    this.productService.getSubCategories(this.categoryId).subscribe(
+      (response: any) => {
+        this.subcategorylist = response;
+      }
+    )
+  }
+
+  setSubCategoryInfo(seletedIdx: any) {
+	if (seletedIdx == 0) {
+		this.subcategoryId = "";
+		this.subcategoryName = "";
+		return;
+	}
+	
+	var index = 0;
+	for (const cat of this.subcategorylist) {
+		if (seletedIdx == index + 1) {
+			this.subcategoryId = cat.scPk.subcategoryId
+			this.subcategoryName = cat.subcategoryName;
+		}
+		
+		index ++;
+	}
+
+  }
+
   saveProduce (): void {
     let product : Product = {
     productId: this.productId,

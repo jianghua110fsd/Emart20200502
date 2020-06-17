@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Seller } from '../seller';
 import { UserService } from '../services/user.service';
 import { LoginService } from '../services/login.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-myprofile',
@@ -27,6 +27,7 @@ export class MyprofileComponent implements OnInit {
 
   constructor(protected userService: UserService,
     protected loginService: LoginService,
+	protected router: Router,
     protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,9 +41,11 @@ export class MyprofileComponent implements OnInit {
     this.email = this.loginService.seller.email;
     this.contactNumber = this.loginService.seller.contactNumber;
   }
+
   goUpdate(): void {
     if (this.rpassword != this.password) {
-      this.MessageArea = "Re-type password is not same";
+      this.MessageArea = "Re-typed password is not same as the Password.";
+	  return;
     }
     let seller : Seller = {
     sellerId: this.sellerId,
@@ -60,7 +63,8 @@ export class MyprofileComponent implements OnInit {
       (response) => {
       this.sellerUpdate = response;
         if (this.sellerUpdate.sellerName != null) {
-          this.MessageArea = "update is OK";
+		  this.router.navigate(['/']);
+          //this.MessageArea = "Updated successfully.";
         }
       }
     );

@@ -60,7 +60,7 @@ export class BuyerprofileComponent implements OnInit {
       (response) => {
       this.buyerIn = response;
         if (this.buyerIn.buyerName != null) {
-    this.router.navigate(['/']);
+    		this.router.navigate(['/']);
           // this.router.navigate(['login']);
         }
       }

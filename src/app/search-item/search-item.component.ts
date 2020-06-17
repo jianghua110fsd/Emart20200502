@@ -20,8 +20,8 @@ export class SearchItemComponent implements OnInit {
   keyword: string;
   categoryId: string;
   subcategoryId: string;
-  priceFrom: number;
-  priceTo: number;
+  priceFrom: any;
+  priceTo: any;
 
   constructor(protected loginService: LoginService,
               protected productService: ProductService,
@@ -31,6 +31,8 @@ export class SearchItemComponent implements OnInit {
   ngOnInit() {
 	this.categoryId = "";
 	this.subcategoryId = "";
+	this.priceFrom = "";
+	this.priceTo = "";
     this.productService.searchAll().subscribe(
       (response: any) => {
         this.searchlist = response;
@@ -68,6 +70,22 @@ export class SearchItemComponent implements OnInit {
   }
 
   bsearch() {
+	
+	let reg5:RegExp = new RegExp('^[+|-]?\\d*\\.?\\d*$','i');
+	let result1:boolean = true;
+	let result2:boolean = true;
+	if (this.priceFrom.length > 0) {
+		result1 = reg5.test(this.priceFrom);
+	}
+	if (this.priceTo.length > 0) {
+		result2 = reg5.test(this.priceTo);
+	}
+	//alert(this.priceFrom+':'+result1);
+	if(!result1 || !result2) {
+		alert("Wrong format for the price input!");
+		return;
+	}
+	
 	let cond: PrdSearchCond = {
 		prdName: this.keyword,
 		categoryId: this.categoryId,
@@ -115,6 +133,17 @@ export class SearchItemComponent implements OnInit {
 
   viewDetail(productId: string) {
   	this.router.navigate(['itemdetail'], {queryParams:{'productId': productId}} );
+  }
+
+  resetFilter() {
+	this.keyword = "";
+	this.categoryId = "";
+	this.subcategoryId = "";
+	this.priceFrom = "";
+	this.priceTo = "";
+	this.subcategorylist = [];
+	
+  	this.bsearch();
   }
 
 

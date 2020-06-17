@@ -93,7 +93,7 @@ export class ItemInsertComponent implements OnInit {
   }
 
   saveProduce (): void {
-	alert(this.categoryId+"-"+this.categoryName+"-"+this.subcategoryId+"-"+this.subcategoryName);
+	//alert(this.categoryId+"-"+this.categoryName+"-"+this.subcategoryId+"-"+this.subcategoryName);
     if (this.productId == null) {
       this.massageArea = "Please input your Id";
       return;
